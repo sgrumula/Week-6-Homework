@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Homework 4</title>
+<link rel="stylesheet" href="style.css"> 
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+<script src="js/leaflet-providers.js"></script>
+
+</head>
+
+<body>
+	<div>
+		<h1 style="color: darkseagreen;text-align: center;" >UPP 465 Web Mapping</h1>
+	</div>
+		<h2 style="color: deeppink;text-align: center;" >Sarah Grumulaitis July 27, 2021</h2>
+
+<p style="text-align: center; color: mediumblue;" >Random Map of Features for Practice with Random Idea Pop Ups</p>
+
+<div id = "map">
+	
+
+
+	<script>
+		var map = L.map('map').setView([29.7499, -95.3584], 13);
+
+		var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});.addto(map);
+
+		var circle = L.circle([29.7499, -95.3584],{
+		color: 'red',
+  		fillColor: '#f03',
+  		fillOpacity: 0.3,
+  		radius: 750,
+}).addTo(map).bindPopup("My Favorite Park");
+
+		var line = L.polyline( [
+			[29.81, - 95.374]
+			[29.934, - 95.453]
+			]).addTo(map).bindPopup("Travel Route");
+
+		var marker = L.marker([29.7599, -95.5384]).addTo(map).bindPopup("Houston");
+
+		var polygon = L.polygon([
+    		[29.13, -95.11],
+    		[29.33, -95.08],
+    		[29.45, -95.33],
+    		[29.41, -95.41],
+], {
+  			color: 'blue', 
+  			fillColor: 'pink',
+  			fillOpacity: .14,
+}).addTo(map).bindPopup("Area Served by Kroger Grocery Store");
+
+
+	</script>
+	
+</div>
+
+</body>
+
+</html>
+
+
